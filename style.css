@@ -1,0 +1,162 @@
+/* الأنماط العامة وإعادة التعيين */
+body {
+    font-family: Arial, sans-serif; /* الخط العام للصفحة */
+    margin: 0; /* إزالة الهوامش الافتراضية للجسم */
+    padding: 0; /* إزالة الحشوة الافتراضية للجسم */
+    background-color: #0d1117; /* لون خلفية داكن */
+    color: #e6edf3; /* لون النص الأساسي */
+    direction: ltr; /* لجعل النص يبدأ من اليمين لليسار (اللغة العربية) */
+    text-align: left; /* محاذاة النص لليمين */
+}
+
+/* التنسيقات للروابط */
+a {
+    color: #58a6ff; /* لون الروابط */
+    text-decoration: none; /* إزالة الخط السفلي من الروابط */
+}
+
+a:hover {
+    text-decoration: underline; /* إضافة خط سفلي عند تمرير المؤشر */
+}
+
+/* تنسيقات الشريط العلوي (Header) */
+header {
+    background-color: #161b22; /* لون خلفية الشريط العلوي */
+    padding: 1rem 2rem; /* حشوة داخلية */
+    display: flex; /* استخدام Flexbox لترتيب العناصر */
+    justify-content: space-between; /* توزيع المساحة بين العناصر */
+    align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+    border-bottom: 1px solid #30363d; /* خط سفلي فاصل */
+}
+
+header h1 {
+    margin: 0; /* إزالة الهامش الافتراضي للعنوان */
+    color: #c9d1d9; /* لون عنوان الهيدر */
+}
+
+header nav ul {
+    list-style: none; /* إزالة نقاط القائمة */
+    margin: 0; /* إزالة الهوامش الافتراضية للقائمة */
+    padding: 0; /* إزالة الحشوة الافتراضية للقائمة */
+    display: flex; /* استخدام Flexbox لترتيب عناصر القائمة أفقيًا */
+}
+
+header nav ul li {
+    margin-right: 1.5rem; /* مسافة بين عناصر القائمة */
+}
+
+header nav ul li:last-child {
+    margin-right: 1; /* إزالة الهامش من العنصر الأخير */
+}
+
+header nav ul li a {
+    color: #c9d1d9; /* لون روابط التنقل */
+    font-weight: bold; /* جعل النص سميكًا */
+    transition: color 0.3s ease; /* تأثير انتقال سلس عند التغيير */
+}
+
+header nav ul li a:hover {
+    color: #58a6ff; /* تغيير لون الرابط عند تمرير المؤشر */
+}
+
+/* تنسيقات القسم الرئيسي */
+section {
+    padding: 4rem 2rem; /* حشوة داخلية علوية وسفلية وجانبية */
+    max-width: 960px; /* أقصى عرض للقسم */
+    margin: 0 auto; /* توسيط القسم في الصفحة */
+    border-bottom: 1px solid #30363d; /* خط سفلي فاصل بين الأقسام */
+}
+
+section:last-of-type {
+    border-bottom: none; /* إزالة الخط السفلي من آخر قسم */
+}
+
+/* تنسيقات قسم "نبذة عني" */
+#about {
+    display: flex; /* استخدام Flexbox لترتيب الصورة والنص */
+    align-items: center; /* محاذاة العناصر عموديًا في المنتصف */
+    gap: 2rem; /* مسافة بين الصورة والنص */
+    flex-direction: row-reverse; /* ترتيب العناصر: النص أولاً ثم الصورة (لأن الاتجاه RTL) */
+}
+
+#about .profile-image {
+    flex-shrink: 0; /* منع الصورة من الانكماش */
+}
+
+#about .profile-image img {
+    width: 200px; /* عرض الصورة */
+    height: 200px; /* ارتفاع الصورة */
+    border-radius: 50%; /* لجعل الصورة دائرية */
+    border: 4px solid #58a6ff; /* حدود حول الصورة */
+    object-fit: cover; /* لضمان تغطية الصورة للمساحة المحددة دون تشويه */
+}
+
+#about .about-text {
+    flex-grow: 1; /* السماح للنص بأخذ المساحة المتبقية */
+}
+
+#about .about-text p {
+    font-size: 1.1rem; /* حجم الخط للنص */
+    line-height: 1.6; /* تباعد الأسطر */
+    color: #c9d1d9; /* لون النص */
+}
+
+/* تنسيقات قسم "المهارات" */
+#skills h2 {
+    text-align: center; /* توسيط عنوان المهارات */
+    margin-bottom: 2.5rem; /* مسافة سفلية */
+    color: #c9d1d9; /* لون العنوان */
+}
+
+.skills-list {
+    display: flex; /* استخدام Flexbox لترتيب المهارات */
+    flex-wrap: wrap; /* السماح للعناصر بالانتقال إلى سطر جديد إذا لم يكن هناك مساحة */
+    justify-content: center; /* توسيط المهارات أفقيًا */
+    gap: 2rem; /* مسافة بين عناصر المهارات */
+}
+
+.skill-item {
+    background-color: #161b22; /* لون خلفية لكل مهارة */
+    padding: 1.5rem; /* حشوة داخلية */
+    border-radius: 8px; /* حواف دائرية */
+    text-align: center; /* توسيط المحتوى داخل العنصر */
+    width: 120px; /* عرض ثابت لكل عنصر مهارة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* ظل للعنصر */
+    transition: transform 0.3s ease; /* تأثير انتقال عند التحويل */
+}
+
+.skill-item:hover {
+    transform: translateY(-5px); /* رفع العنصر قليلاً عند تمرير المؤشر */
+}
+
+.skill-item img {
+    width: 60px; /* عرض أيقونة المهارة */
+    height: 60px; /* ارتفاع أيقونة المهارة */
+    margin-bottom: 0.8rem; /* مسافة سفلية من الأيقونة */
+}
+
+.skill-item span {
+    display: block; /* لجعل اسم المهارة يأخذ سطرًا كاملاً */
+    font-weight: bold; /* جعل النص سميكًا */
+    color: #e6edf3; /* لون اسم المهارة */
+}
+
+/* تنسيقات قسم "المشاريع" (تحتاج إلى إضافة المحتوى لاحقًا) */
+#projects h2 {
+    text-align: center; /* توسيط عنوان المشاريع */
+    margin-bottom: 2.5rem; /* مسافة سفلية */
+    color: #c9d1d9; /* لون العنوان */
+}
+dt {
+  color: aqua;
+  font-weight: bold;  
+}
+/* تنسيقات التذييل (Footer) */
+footer {
+    background-color: #161b22; /* لون خلفية التذييل */
+    padding: 1.5rem 2rem; /* حشوة داخلية */
+    text-align: center; /* توسيط النص */
+    color: #c9d1d9; /* لون النص */
+    margin-top: 2rem; /* مسافة علوية */
+    border-top: 1px solid #30363d; /* خط علوي فاصل */
+}
